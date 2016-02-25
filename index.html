@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/style.css" />
+</head>
+
+<body>
+    <div class="back">
+        <svg class="header__line">
+            <path d="M 1054,-5 L 1024,55" stroke="#ED6907" stroke-width="8" fill="none" />
+        </svg>
+        <div class="header">
+            <span class="header__text">Скольким своим пациентам в течение последнего месяца</span>
+            <span class="header__text">Вы поставили диагноз мКРР?</span>
+            <svg class="header__line">
+                <path d="M -5,75 L 75,0 1024,0" stroke="#ED6907" stroke-width="8" fill="none" />
+                <path d="M -5,95 L 75,20" stroke="#ED6907" stroke-width="6" fill="none" />
+            </svg>
+        </div>
+
+        <div class="main">
+            <div class="main__circles">
+                <svg class="circles">
+                    <g transform="translate(165,165)">
+                        <circle r="150" class="circles__pink" />
+                        <text dx="40" dy="70" class="circles__text" id="js-circle-all" />
+                    </g>
+                    <g transform="translate(110,150)">
+                        <circle r="90" class="circles__orange" />
+                        <text class="circles__text" id="js-circle-kras" />
+                    </g>
+                    <g transform="translate(235,120)">
+                        <circle r="65" class="circles__brown" />
+                        <text class="circles__text" id="js-circle-nras" />
+                    </g>
+                </svg>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="main__controls">
+                <div class="control">
+                    <div class="control__text">Число пациентов</div>
+                    <div class="control__slider">
+                        <div class="slider slider_pink" id="js-slider-all">
+                            <span class="slider__value">12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="control">
+                    <div class="control__text">KRAS</div>
+                    <div class="control__slider">
+                        <div class="slider slider_orange" id="js-slider-kras">
+                            <span class="slider__value">6</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="control">
+                    <div class="control__text">NRAS</div>
+                    <div class="control__slider">
+                        <div class="slider slider_brown" id="js-slider-nras">
+                            <span class="slider__value">3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/jquery-ui.min.js"></script>
+    <script>
+        $(function() {
+            function update() {
+                setTimeout(function() {
+                    $("#js-circle-all").text($("#js-slider-all").slider("value"));
+                    $("#js-circle-kras").text($("#js-slider-kras").slider("value"));
+                    $("#js-circle-nras").text($("#js-slider-nras").slider("value"));
+
+                    $("#js-slider-all .slider__value").text($("#js-slider-all").slider("value"));
+                    $("#js-slider-kras .slider__value").text($("#js-slider-kras").slider("value"));
+                    $("#js-slider-nras .slider__value").text($("#js-slider-nras").slider("value"));
+
+                    $("#js-slider-all .slider__value").css("left", $("#js-slider-all .ui-slider-handle").css("left"));
+                    $("#js-slider-kras .slider__value").css("left", $("#js-slider-kras .ui-slider-handle").css("left"));
+                    $("#js-slider-nras .slider__value").css("left", $("#js-slider-nras .ui-slider-handle").css("left"));
+                }, 0);
+            };
+
+            $(".slider").slider({
+                orientation: "horizontal",
+                range: "min",
+                min: 0,
+                max: 12,
+                value: 0,
+                step: 1,
+                slide: update
+            });
+
+            $("#js-slider-all").slider("value", 12);
+            $("#js-slider-kras").slider("value", 6);
+            $("#js-slider-nras").slider("value", 3);
+
+            update();
+        })
+    </script>
+
+</body>
+
+</html>

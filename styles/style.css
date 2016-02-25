@@ -1,0 +1,154 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+.clearfix:after {
+    display: table;
+    clear: both;
+    content: '';
+}
+
+.back {
+    background-image: url(../content/back.png);
+}
+
+.header {
+    padding-top: 30px;
+    margin-bottom: 30px;
+}
+
+.header__text {
+    font-size: 28px;
+    color: #01509F;
+    display: block;
+    margin: 0 100px;
+}
+
+.header__line {
+    height: 100px;
+    width: 100%;
+    position: absolute;
+}
+
+.main {
+    margin: 30px 70px;
+    width: 500px;
+}
+
+    .main__circles {
+        font: 24px sans-serif;
+        float: right;
+        width: 75%;
+        text-align: center;
+    }
+
+    .main__controls {
+        font: 20px sans-serif;
+        color: #ec6907;
+    }
+    
+
+.circles {
+    width: 330px;
+    height: 330px;
+}
+
+    .circles__pink {
+        fill: #f9d5b8;
+    }
+
+    .circles__orange {
+        fill: #f17431;
+    }
+
+    .circles__brown {
+        fill: #e7b783;
+    }
+
+    .circles__text {
+        fill: white;
+    }
+
+
+.control {
+    margin: 35px 15px;
+}
+
+    .control__text {
+        display: inline-block;
+        width: 25%;
+    }
+
+    .control__slider {
+        display: inline-block;
+        width: 70%;
+    }
+
+
+.slider {
+    position: relative;
+    height: 15px;
+    border: none;
+    outline: none;
+    background: #d2ddee;
+}
+
+    .slider:before {
+        position: absolute;
+        z-index: 100;
+        content: '';
+        border-width: 15px 15px 0 0;
+        border-style: solid;
+        border-color: #ec6907 transparent transparent transparent;
+    }
+
+    .slider:after {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        content: '';
+        border-width: 0 0 15px 15px;
+        border-style: solid;
+        border-color: transparent transparent #919bce #d2ddee;
+    }
+
+    .slider .ui-slider-range-min {
+        position: relative;
+        height: 100%;
+        border: none;
+        outline: none;
+    }
+
+    .slider_pink .ui-slider-range-min {
+        background: #f9d5b8;
+    }
+
+    .slider_orange .ui-slider-range-min {
+        background: #f17431;
+    }
+
+    .slider_brown .ui-slider-range-min {
+        background: #e7b783;
+    }
+
+    .slider .ui-slider-handle {
+        position: absolute;
+        z-index: 200;
+        top: -6px;
+        width: 45px;
+        height: 25px;
+        margin-left: -15px;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        background: url(../content/slider.svg) center no-repeat;
+    }
+
+    .slider__value {
+        position: absolute;
+        top: -30px;
+    }
